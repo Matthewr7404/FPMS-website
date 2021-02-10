@@ -10,10 +10,13 @@ var firebaseConfig = {
     measurementId: "G-QRG3LTNEPG"
   };
 
+function save_name(name){
+  localStorage.setItem('name', name)
+}
 
 
 
-  firebase.initializeApp(firebaseConfig);
+   firebase.initializeApp(firebaseConfig);
     var db = firebase.database()
     class MEME_CHAT{
       home(){
@@ -128,12 +131,19 @@ var firebaseConfig = {
           if(chat_input.value.length > 0){
             chat_input_send.removeAttribute('disabled')
             chat_input_send.classList.add('enabled')
-            chat_input_send.onclick = function(){
+            var input = document.getElementById("chat_input");
+	    input.addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+              event.preventDefault();
+              document.getElementById("chat_input_send").click();
+              }
+            });
+	      chat_input_send.onclick = function(){
               chat_input_send.setAttribute('disabled', true)
               chat_input_send.classList.remove('enabled')
               if(chat_input.value.length <= 0){
-                return
-              }
+              return
+            }
               parent.create_load('chat_content_container')
               parent.send_message(chat_input.value)
               chat_input.value = ''
@@ -147,15 +157,26 @@ var firebaseConfig = {
         var chat_logout_container = document.createElement('div')
         chat_logout_container.setAttribute('id', 'chat_logout_container')
   
+        var chat_rename = document.createElement('button')
+        chat_rename.setAttribute('id', 'chat_rename')
+        chat_rename.textContent = `${parent.get_name()} • CHANGE NAME                   `
+        chat_rename.onclick = function(){
+          localStorage.clear()
+          var newname = prompt('ENTER A NEW USERNAME','');
+          save_name(newname);
+	  window.location.reload(true)
+	}
+  
         var chat_logout = document.createElement('button')
         chat_logout.setAttribute('id', 'chat_logout')
-        chat_logout.textContent = `${parent.get_name()} • logout`
+        chat_logout.textContent = `${parent.get_name()} • LOGOUT`
         chat_logout.onclick = function(){
           localStorage.clear()
           parent.home()
         }
-  
-        chat_logout_container.append(chat_logout)
+
+        chat_logout_container.append(chat_rename)
+	chat_logout_container.append(chat_logout)
         chat_input_container.append(chat_input, chat_input_send)
         chat_inner_container.append(chat_content_container, chat_input_container, chat_logout_container)
         chat_container.append(chat_inner_container)
