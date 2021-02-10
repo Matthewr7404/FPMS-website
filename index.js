@@ -162,11 +162,11 @@ function save_name(name){
         chat_rename.textContent = `${parent.get_name()} • CHANGE NAME                   `
         chat_rename.onclick = function(){
           var newname = prompt('ENTER A NEW USERNAME','');
-          if (newname = null) {
-            set_name(localStorage.getItem('name'))
-	  } else {
+          if (newname !=null & newname.length>0){
             localStorage.clear()
 	    save_name(newname);
+	    window.location.reload(true)
+	  } else {
 	    window.location.reload(true)
 		}
 	}
