@@ -23,7 +23,7 @@ body{
     justify-content: center;
     align-items: center;
   
-    background-color: #D64045;/*#467599;*/
+    background-color: #5290fa;/*#467599;*/
     border-bottom: 5px solid #fff;
     box-shadow: 0 0 30px -18px #D64045;
   
@@ -185,10 +185,20 @@ body{
     margin-top: 20px;
   }
   #chat_logout{
+    background-color: #ffffff;
     color: #D64045;
     cursor: pointer;
   }
   #chat_logout:hover{
+    text-decoration: underline;
+  }
+  #chat_rename{
+    background-color: #ffffff;
+    color: #D64045;
+    cursor: pointer;
+    margin-right:30px;
+  }
+  #chat_rename:hover{
     text-decoration: underline;
   }
   .message_container{
