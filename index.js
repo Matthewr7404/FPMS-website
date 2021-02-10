@@ -163,8 +163,13 @@ function save_name(name){
         chat_rename.onclick = function(){
           localStorage.clear()
           var newname = prompt('ENTER A NEW USERNAME','');
-          save_name(newname);
-	  window.location.reload(true)
+          if (newname = null) {
+            return
+	  } else {
+            localStorage.clear()
+	    save_name(newname);
+	    window.location.reload(true)
+		}
 	}
   
         var chat_logout = document.createElement('button')
