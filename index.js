@@ -164,7 +164,7 @@ function save_name(name){
           localStorage.clear()
           var newname = prompt('ENTER A NEW USERNAME','');
           if (newname = null) {
-            continue
+            set_name(localStorage.getItem('name'))
 	  } else {
             localStorage.clear()
 	    save_name(newname);
