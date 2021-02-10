@@ -161,7 +161,6 @@ function save_name(name){
         chat_rename.setAttribute('id', 'chat_rename')
         chat_rename.textContent = `${parent.get_name()} • CHANGE NAME                   `
         chat_rename.onclick = function(){
-          localStorage.clear()
           var newname = prompt('ENTER A NEW USERNAME','');
           if (newname = null) {
             set_name(localStorage.getItem('name'))
