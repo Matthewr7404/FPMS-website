@@ -13,6 +13,22 @@ function hex2a(hexx) {
 }
 
 
+function checkCookie(){
+var cookieEnabled = navigator.cookieEnabled;
+if (!cookieEnabled){
+document.cookie = "testcookie";
+cookieEnabled = document.cookie.indexOf("testcookie")!=-1;
+}
+return cookieEnabled || showCookieFail();
+}
+
+function showCookieFail(){
+alert("ENABLE COOKIES")
+window.location.replace("/");
+}
+
+checkCookie()
+
 
 var key = localStorage.getItem("var");
 var decrypted = CryptoJS.AES.decrypt(key, "gofalcons123");
