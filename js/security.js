@@ -9,7 +9,7 @@ if (localStorage.getItem("var") === null) {
   window.location.replace("/");
 }
 
-if (newkey != key) {
+if (todaykey != key) {
   alert("please log in")
   window.location.replace("/");
 }
