@@ -8,6 +8,9 @@ var firebaseConfig = {
   appId: "1:114678540139:web:a2b9203ed1ae434d64ce2e"
 };
 
+firebase.initializeApp(config);
+var database = firebase.database();
+
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
