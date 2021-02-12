@@ -41,6 +41,7 @@ function formsubmit() {
       localStorage.setItem("passwd", data)
     });
     x + 1
+  }
   passworddb = localStorage.getItem("passwd")
   localStorage.setItem("passwd", null)
   if (password == passworddb) {
