@@ -5,6 +5,8 @@ var yyyy = today.getFullYear();
 today = mm + '/' + dd + '/' + yyyy;
 var todaykey = CryptoJS.AES.encrypt(today, "gofalcons123");
 
+var key = localStorage.getItem("var")
+
 if (localStorage.getItem("var") === null) {
   window.location.replace("/");
 }
