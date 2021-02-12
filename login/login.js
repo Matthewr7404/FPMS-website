@@ -1,3 +1,17 @@
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+}
+
+
 var firebaseConfig = {
   apiKey: "AIzaSyBGdsbWdlqV5Oy5GZGPGixQzqPMrzYWgF8",
   authDomain: "personal-chat-9558f.firebaseapp.com",
@@ -11,10 +25,17 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
-var initdata = firebase.database().ref('users/');
+var initdata = firebase.database().ref('/');
 initdata.on('value', (snapshot) => {
   const data = snapshot.val();
 });
+
+function writeip(user, ip, time) {
+  firebase.database().ref('login/' + user).set({
+    ip : ip;
+    time: time
+  });
+}
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -48,6 +69,20 @@ function formsubmit() {
   });
   passworddb = localStorage.getItem("passwd")
   localStorage.setItem("passwd", null)
+
+  var client = new HttpClient();
+  client.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+    const myRegexp = /^(?:ip)=(.*)$/gm;
+    let match;
+    let resultString = "";
+    match = myRegexp.exec(data);
+    while (match != null) {
+    resultString = resultString.concat(match[1] + "\n");
+    match = myRegexp.exec(data);
+    }
+    writeip(username, resultstring, today)
+    })
+
   if (password == passworddb) {
     if (key == "locked" && Number(tries) <= 5) {
       alert("Usage limit exceeded. Try again tomorrow.")
