@@ -9,7 +9,10 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-
+var testu = firebase.database().ref('users/' + username);
+  testu.on('value', (snapshot) => {
+    const data = snapshot.val();
+  });
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -36,6 +39,11 @@ function formsubmit() {
   var tries = localStorage.getItem("number")
   var username = document.getElementById("emailinput").value
   var password = document.getElementById("passwordinput").value
+  firebase.initializeApp(firebaseConfig);
+  var testu = firebase.database().ref('users/' + username);
+    testu.on('value', (snapshot) => {
+      const data = snapshot.val();
+  });
   var passwordu = firebase.database().ref('users/' + username);
   passwordu.on('value', (snapshot) => {
     const data = snapshot.val();
