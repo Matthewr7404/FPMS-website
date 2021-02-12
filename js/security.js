@@ -36,11 +36,7 @@ var decrypted = CryptoJS.AES.decrypt(key, "gofalcons123");
 if (localStorage.getItem("var") === null) {
   window.location.replace("/");
 }
-console.log(today)
-localStorage.setItem("today", today)
 
-console.log(decrypted)
-localStorage.setItem("decrypt", decrypted)
 
 if (hex2a(decrypted) != today) {
   alert("please log in");
