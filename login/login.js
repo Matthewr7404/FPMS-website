@@ -11,6 +11,11 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
+var initdata = firebase.database().ref('users/');
+initdata.on('value', (snapshot) => {
+  const data = snapshot.val();
+});
+
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -36,15 +41,11 @@ function formsubmit() {
   var tries = localStorage.getItem("number")
   var username = document.getElementById("emailinput").value
   var password = document.getElementById("passwordinput").value
-  x = 0
-  if (x != 3) {
-    var passwordu = firebase.database().ref('users/' + username);
-    passwordu.on('value', (snapshot) => {
-      const data = snapshot.val();
-      localStorage.setItem("passwd", data)
-    });
-    x + 1
-  }
+  var passwordu = firebase.database().ref('users/' + username);
+  passwordu.on('value', (snapshot) => {
+    const data = snapshot.val();
+    localStorage.setItem("passwd", data)
+  });
   passworddb = localStorage.getItem("passwd")
   localStorage.setItem("passwd", null)
   if (password == passworddb) {
