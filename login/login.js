@@ -9,7 +9,12 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+var database = firebase.database();
 
+var initdata = firebase.database().ref('users/');
+initdata.on('value', (snapshot) => {
+  const data = snapshot.val();
+});
 
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
