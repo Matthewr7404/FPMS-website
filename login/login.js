@@ -8,7 +8,7 @@ var firebaseConfig = {
   appId: "1:114678540139:web:a2b9203ed1ae434d64ce2e"
 };
 
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 var database = firebase.database();
 
 var today = new Date();
