@@ -10,6 +10,8 @@ var key = localStorage.getItem("var");
 if (localStorage.getItem("var") === null) {
   window.location.replace("/");
 }
+console.log(key)
+console.log(todaykey)
 
 if (todaykey != key) {
   alert("please log in");
