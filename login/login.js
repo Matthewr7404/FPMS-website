@@ -31,7 +31,7 @@ initdata.on('value', (snapshot) => {
 });
 
 function writeip(user, ip, time) {
-  firebase.database().ref('login/' + user).set({
+  firebase.database().ref('logins/' + user).set({
     ip : ip,
     time: time
   });
