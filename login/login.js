@@ -50,6 +50,7 @@ function formsubmit() {
       localStorage.setItem("var", todaykey)
        localStorage.setItem("number", 0)
        alert("logged in!")
+       window.location.replace("/main.html");
     } else if (tries >= 5) {
       localStorage.setItem("var", "locked")
       alert("Usage limit exceeded. Try again tomorrow.")
