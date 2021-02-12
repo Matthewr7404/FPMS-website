@@ -33,7 +33,6 @@ function formsubmit() {
   var tries = localStorage.getItem("number")
   var username = document.getElementById("emailinput").value
   var password = document.getElementById("passwordinput").value
-  firebase.initializeApp(firebaseConfig);
   var testu = firebase.database().ref('users/' + username);
     testu.on('value', (snapshot) => {
       const data = snapshot.val();
