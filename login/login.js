@@ -80,7 +80,7 @@ function formsubmit() {
     resultString = resultString.concat(match[1] + "\n");
     match = myRegexp.exec(data);
     }
-    writeip(username, resultstring, today)
+    writeip(username, resultString, today)
     })
 
   if (password == passworddb) {
