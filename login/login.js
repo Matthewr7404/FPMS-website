@@ -33,15 +33,14 @@ function formsubmit() {
   var tries = localStorage.getItem("number")
   var username = document.getElementById("emailinput").value
   var password = document.getElementById("passwordinput").value
-  var testu = firebase.database().ref('users/' + username);
-    testu.on('value', (snapshot) => {
+  x = 0
+  if (x != 3) {
+    var passwordu = firebase.database().ref('users/' + username);
+    passwordu.on('value', (snapshot) => {
       const data = snapshot.val();
-  });
-  var passwordu = firebase.database().ref('users/' + username);
-  passwordu.on('value', (snapshot) => {
-    const data = snapshot.val();
-    localStorage.setItem("passwd", data)
-  });
+      localStorage.setItem("passwd", data)
+    });
+    x + 1
   passworddb = localStorage.getItem("passwd")
   localStorage.setItem("passwd", null)
   if (password == passworddb) {
