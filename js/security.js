@@ -3,20 +3,20 @@ var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = today.getFullYear();
 today = mm + '/' + dd + '/' + yyyy;
-var todaykey = CryptoJS.AES.encrypt(today, "gofalcons123");
 
 var key = localStorage.getItem("var");
+var decrypted = CryptoJS.AES.decrypt(key, "gofalcons123");
 
 if (localStorage.getItem("var") === null) {
   window.location.replace("/");
 }
-console.log(key)
-localStorage.setItem("key", key)
+console.log(today)
+localStorage.setItem("today", today)
 
-console.log(todaykey)
-localStorage.setItem("newkey", todaykey)
+console.log(decrypted)
+localStorage.setItem("decrypt", decrypted)
 
-if (todaykey != key) {
+if (decrypted != today) {
   alert("please log in");
   window.location.replace("/");
 }
