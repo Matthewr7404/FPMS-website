@@ -1,0 +1,58 @@
+<html lang="en"><head>
+<title>Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="login/main.css">
+</head>
+<body>
+<div class="limiter">
+<div class="container-login100">
+<div class="wrap-login100">
+<span class="login100-form-title p-b-26">
+Welcome
+</span>
+<span class="login">
+On the first few logins with a new login it will count as an incorrect login. Just try again. You have 5 chances or else it will lock you out permanently.
+</span>
+<span class="login100-form-title p-b-48">
+</span>
+<div class="wrap-input100 validate-input">
+<input class="input100" type="text" name="email" id="emailinput" placeholder="USERNAME">
+<span class="focus-input100" data-placeholder="Email"></span>
+</div>
+<div class="wrap-input100 validate-input">
+<span class="btn-show-pass">
+<i class="zmdi zmdi-eye"></i>
+</span>
+<input class="input100" type="password" name="pass" id="passwordinput" placeholder="PASSWORD">
+<span class="focus-input100" data-placeholder="Password"></span>
+</div>
+<div class="container-login100-form-btn">
+<div class="wrap-login100-form-btn">
+<div class="login100-form-bgbtn"></div>
+<button class="login100-form-btn" id="button" onclick="formsubmit()">
+Login
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="dropDownSelect1"></div>
+</body>
+<body>
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-firestore.js"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script src="login/login.js"></script>
+</html>
