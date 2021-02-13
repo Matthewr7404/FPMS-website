@@ -31,9 +31,12 @@ initdata.on('value', (snapshot) => {
 });
 
 function writeip(user, ip, time) {
-  firebase.database().ref('logins/' + user).set({
+  database.ref('logins/').once('value', function(message_object) {
+  var index = parseFloat(message_object.numChildren()) + 1;
+  firebase.database().ref('logins/' + `${user}_${index}`).set({
     ip : ip,
     time: time
+    });
   });
 }
 
