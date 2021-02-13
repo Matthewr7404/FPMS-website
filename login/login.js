@@ -9,6 +9,7 @@ return cookieEnabled || showCookieFail();
 
 function showCookieFail(){
 alert("ENABLE COOKIES TO LOGIN")
+document.getElementByClassName("login100-form-bgbtn").style.visibility = "hidden";
 }
 
 checkCookie()
