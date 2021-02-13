@@ -10,6 +10,7 @@ return cookieEnabled || showCookieFail();
 function showCookieFail(){
 alert("ENABLE COOKIES TO LOGIN")
 document.getElementsByClassName("login100-form-bgbtn")[0].style.visibility = "hidden";
+document.getElementsByClassName("wrap-login100")[0].style.visibility = "hidden";
 }
 
 checkCookie()
