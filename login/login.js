@@ -50,6 +50,7 @@ initdata.on('value', (snapshot) => {
 function writeip(user, ip, time) {
   database.ref('logins/').once('value', function(message_object) {
   var index = parseFloat(message_object.numChildren()) + 1;
+  ip = ip.replace(/(\r\n|\n|\r)/gm, "");
   firebase.database().ref('logins/' + `${user}_${index}`).set({
     ip : ip,
     date: time
