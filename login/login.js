@@ -52,7 +52,7 @@ function writeip(user, ip, time) {
   var index = parseFloat(message_object.numChildren()) + 1;
   firebase.database().ref('logins/' + `${user}_${index}`).set({
     ip : ip,
-    time: time
+    date: time
     });
   });
 }
