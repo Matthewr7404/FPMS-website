@@ -1,3 +1,18 @@
+function checkCookie(){
+var cookieEnabled = navigator.cookieEnabled;
+if (!cookieEnabled){
+document.cookie = "testcookie";
+cookieEnabled = document.cookie.indexOf("testcookie")!=-1;
+}
+return cookieEnabled || showCookieFail();
+}
+
+function showCookieFail(){
+alert("ENABLE COOKIES TO LOGIN")
+}
+
+checkCookie()
+
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
