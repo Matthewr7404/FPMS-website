@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+	<title>Scripts!</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+	<script src="js/security.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/simple.css"/>
+	<meta charset="utf-8"/>
+	</head>
+	<body>
+		<h1>Hacks & Scripts</h1>
+			<ul>
+			<li><a href="Main.html">Index</a></li>
+			<li><a href="chat.html">Chat</a></li>
+			<li><a href="games.html">Games</a></li>
+			<li><a href="https://drive.google.com/drive/folders/1piuWP9LCzumx36F0R8hg7n_yOSNTQSEc">Movies</a></li>
+
+		</ul>
+		<h2>Click the 3 vertical dots in the top left of your screen, then click "Developer Tools", After that click "Inspect", then  select "Console" and paste in the script</h2>
+    <h3>Edpuzzle Speedup</h3>
+
+    <p>
+
+speed = 2
+video = document.querySelector('video')
+Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'playbackRate').set.call(video, speed)
+Object.defineProperty(video, 'playbackRate', { writable: false })
+
+</p>
+
+	</body>
+</html>
